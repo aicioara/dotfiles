@@ -23,15 +23,19 @@ alias gitk="gitk --all"
 alias scons="scons -Q"
 alias xclip='xclip -selection c'
 alias grep='grep --colour=auto -i'
+# Colorful less
+alias less="less -r"
 
 # Ubuntu -> Mint conversions
 alias gedit="pluma"
 alias nautilus="caja"
 
 # Git
-alias gst='git status'
-alias gp='git push'
+alias gst='git status -sb'
+alias gp='git push origin HEAD'
 alias gc='git commit -am "'
+# Remove `+` and `-` from start of diff lines; just rely upon color.
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 
 # Laptop Fixes
 alias wireless="sudo nmcli nm sleep false"
