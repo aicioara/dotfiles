@@ -1,8 +1,8 @@
 # dotfiles
 
-Set of dotfiles
+Set of personal dotfiles
 
-Inspired by [@holman](https://github.com/holman/dotfiles) and (@jeffcole)[https://www.foraker.com/blog/get-your-dotfiles-under-control]
+Inspired by [@holman](https://github.com/holman/dotfiles) and [@jeffcole](https://www.foraker.com/blog/get-your-dotfiles-under-control).
 
 # Licesnse
 
