@@ -1,0 +1,11 @@
+[user]
+	email = andrei@cioara.me
+	name = Andrei Cioara
+[credential]
+	helper = cache --timeout=360000
+[push]
+	default = current
+[diff]
+	tool = meld
+[core]
+	editor = vim
