@@ -11,6 +11,10 @@ alias sls="ls"
 alias m="make"
 alias o="xdg-open"
 
+# Fast stuff
+alias fastbower="yes '' | bower init"
+alias fastnpm="npm init -y"
+
 # Useful Commands
 alias cpd="pwd | xargs -I % echo cd % | xclip"
 alias aliases='pluma ~/.bash_aliases &'
