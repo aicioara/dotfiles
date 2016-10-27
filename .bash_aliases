@@ -10,6 +10,7 @@ alias s="ls"
 alias sls="ls"
 alias m="make"
 alias o="xdg-open"
+alias src='source ~/.bashrc'
 
 # Fast stuff
 alias fastbower="yes '' | bower init"
@@ -45,6 +46,8 @@ alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 alias wireless="sudo nmcli nm sleep false"
 alias suspend="sudo pm-suspend"
 alias audiolist="pactl list sources"
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+
 
 # Bookmarks
 alias dev="cd ~/dev"
