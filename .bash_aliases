@@ -1,3 +1,4 @@
+#!/bin/bash
 # Written by Andrei Cioara <http://andrei.cioara.me>
 
 # Shortcuts and common mistakes
