@@ -12,6 +12,7 @@ alias sls="ls"
 alias m="make"
 alias o="xdg-open"
 alias src='source ~/.bashrc'
+alias rr="react-native run-android"
 
 # Fast stuff
 alias fastbower="yes '' | bower init"
