@@ -13,6 +13,8 @@ alias m="make"
 alias o="xdg-open"
 alias src='source ~/.bashrc'
 alias rr="react-native run-android"
+# Replaces whitespace with underscore in files. So we can hook them into scrpts
+alias hack_repair='for file in *; do mv "$file" "${file/ /_}"; done'
 
 # Fast stuff
 alias fastbower="yes '' | bower init"
