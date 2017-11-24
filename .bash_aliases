@@ -13,6 +13,7 @@ alias m="make"
 alias o="xdg-open"
 alias src='source ~/.bashrc'
 alias rr="react-native run-android"
+alias vv="source venv/bin/activate"
 # Replaces whitespace with underscore in files. So we can hook them into scrpts
 alias hack_repair='for file in *; do mv "$file" "${file/ /_}"; done'
 
@@ -25,7 +26,7 @@ alias cpd="pwd | xargs -I % echo cd % | xclip"
 alias aliases='pluma ~/.bash_aliases &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
-alias server="ip-local | xargs -I % echo 'http://%:8899' | xclip && python -m SimpleHTTPServer 8899"
+alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8899"
 
 # Better defaults
 alias gitk="gitk --all"
@@ -40,9 +41,13 @@ alias gedit="pluma"
 alias nautilus="caja"
 
 # Git
+gc() {
+    gc_args=$@
+    echo "${gc_args^}" | xargs -I % git commit -am "%"
+}
+
 alias gst='git status -sb'
 alias gp='git push origin HEAD'
-alias gc='git commit -am "'
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
 
@@ -74,9 +79,9 @@ take () {
 p() {
   if [ $# -eq 0 ]
   then
-    python -i /home/aicioara/.scripts/imports.py
+    python3 -i /home/aicioara/.scripts/imports.py
   else
-    python $@
+    python3 $@
   fi
 }
 
