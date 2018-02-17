@@ -1,19 +1,9 @@
-# Author: Andrei Cioara
+#!/bin/bash
+# Written by Andrei Cioara <http://andrei.cioara.me>
 
-# Logging Bash History
-export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history/bash-history-$(date "+%Y-%m-%d").log; fi'
+# .bashrc is too specific. Extracting the rc so it can be used by other shells
 
-# Npm
-export PATH=/usr/local/npm/bin:$PATH
+# If not running interactively, don't do anything
+[[ $- == *i* ]] || return
 
-# CUDA
-export CUDA_HOME=/usr/local/cuda-7.0
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
-export PATH=${CUDA_HOME}/bin:$PATH
-
-# Android
-export ANDROID_HOME=/opt/sdks/Android
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-source ~/.bash_aliases
+source ~/.shellrc
