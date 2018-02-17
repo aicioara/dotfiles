@@ -53,17 +53,19 @@ def backup_old_configs(dotfiles):
 
 
 def create_symlinks(dotfiles):
-    pass
+    for dotfile in dotfiles:
+        src = os.path.join(REPO_HOME, dotfile)
+        dst = os.path.join(USER_HOME, dotfile)
+
+        cmd = "ln -fs {original} {symlink}".format(original=src, symlink=dst)
+        s(cmd)
 
 
 def main():
     logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
     dotfiles = get_dotfiles()
-
     backup_old_configs(dotfiles)
     create_symlinks(dotfiles)
-
-
 
 
 if __name__ == "__main__":
