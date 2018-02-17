@@ -13,7 +13,10 @@ REPO_HOME = os.path.abspath(os.path.join(CURR_FOLDER, "home/"))
 USER_HOME = os.path.expanduser("~")
 
 
-def s(cmd):
+def s(cmd, dryrun=False):
+    if dryrun:
+        print(cmd)
+        return
     logging.debug(cmd)
     rc = os.system(cmd)
     if rc != 0:
@@ -33,14 +36,20 @@ def backup_old_configs(dotfiles):
     else:
         raise RuntimeError("Could not create the backup folder")
 
-    os.makedirs("{}{}".format(backup_folder_prefix, backup_folder_suffix))
+    backup_dir = "{}{}".format(backup_folder_prefix, backup_folder_suffix)
+
+    os.makedirs(backup_dir)
 
     for dotfile in dotfiles:
-        cmd = "cp -r {src} {dst}".format(
-            src="",
-            dst=""
-        )
-        print cmd
+        src = os.path.join(USER_HOME, dotfile)
+        dst = os.path.join(backup_dir)
+
+        if not (os.path.exists(src)):
+            logging.info("Skipping backing up `{}`. It does not exist".format(src))
+            continue
+
+        cmd = "cp -r {src} {dst}".format(src=src, dst=dst)
+        s(cmd)
 
 
 def create_symlinks(dotfiles):
