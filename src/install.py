@@ -35,6 +35,13 @@ def backup_old_configs(dotfiles):
 
     os.makedirs("{}{}".format(backup_folder_prefix, backup_folder_suffix))
 
+    for dotfile in dotfiles:
+        cmd = "cp -r {src} {dst}".format(
+            src="",
+            dst=""
+        )
+        print cmd
+
 
 def create_symlinks(dotfiles):
     pass
