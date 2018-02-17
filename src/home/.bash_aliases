@@ -17,6 +17,14 @@ alias vv="source venv/bin/activate"
 # Replaces whitespace with underscore in files. So we can hook them into scrpts
 alias hack_repair='for file in *; do mv "$file" "${file/ /_}"; done'
 
+# Better defaults
+alias gitk="gitk --all"
+alias scons="scons -Q"
+alias xclip='xclip -selection c'
+alias grep='grep --colour=auto -i --line-buffered'
+# Colorful less
+alias less="less -r"
+
 # Fast stuff
 alias fastbower="yes '' | bower init"
 alias fastnpm="npm init -y"
@@ -29,13 +37,11 @@ alias ip-local="hostname -I | xargs echo -n"
 alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8899"
 alias kkk="kill -9 %%"
 
-# Better defaults
-alias gitk="gitk --all"
-alias scons="scons -Q"
-alias xclip='xclip -selection c'
-alias grep='grep --colour=auto -i --line-buffered'
-# Colorful less
-alias less="less -r"
+# Bookmarks
+alias dev="cd ~/dev"
+alias dw="cd ~/Downloads"
+alias pic="cd ~/Pictures"
+alias fast="dev && cd cpp/fast"
 
 # Ubuntu -> Mint conversions
 alias gedit="pluma"
@@ -46,7 +52,6 @@ gc() {
     gc_args=$@
     echo "${gc_args^}" | xargs -I % git commit -am "%"
 }
-
 alias gst='git status -sb'
 alias gp='git push origin HEAD'
 # Remove `+` and `-` from start of diff lines; just rely upon color.
@@ -57,13 +62,6 @@ alias wireless="sudo nmcli nm sleep false"
 alias suspend="sudo pm-suspend"
 alias audiolist="pactl list sources"
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-
-
-# Bookmarks
-alias dev="cd ~/dev"
-alias dw="cd ~/Downloads"
-alias pic="cd ~/Pictures"
-alias fast="dev && cd cpp/fast"
 
 # Scripts
 alias c=". ~/.scripts/cd.sh"
@@ -80,9 +78,9 @@ take () {
 p() {
   if [ $# -eq 0 ]
   then
-    python3 -i /home/aicioara/.scripts/imports.py
+    python -i /home/aicioara/.scripts/imports.py
   else
-    python3 $@
+    python $@
   fi
 }
 

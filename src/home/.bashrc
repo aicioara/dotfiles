@@ -16,10 +16,4 @@ export ANDROID_HOME=/opt/sdks/Android
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_private ]; then
-    . ~/.bash_private
-fi
+source ~/.bash_aliases
