@@ -57,12 +57,17 @@ def create_symlinks(dotfiles):
         src = os.path.join(REPO_HOME, dotfile)
         dst = os.path.join(USER_HOME, dotfile)
 
+        logging.info("Linking {} -> {}".format(src, dst))
+
+        cmd = "rm -r {dst}".format(dst=dst)
+        s(cmd)
+
         cmd = "ln -fs {original} {symlink}".format(original=src, symlink=dst)
         s(cmd)
 
 
 def main():
-    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
+    logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
     dotfiles = get_dotfiles()
     backup_old_configs(dotfiles)
     create_symlinks(dotfiles)
