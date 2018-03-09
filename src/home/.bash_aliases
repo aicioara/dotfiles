@@ -30,7 +30,7 @@ alias fastbower="yes '' | bower init"
 alias fastnpm="npm init -y"
 
 # Useful Commands
-alias cpd="pwd | xargs -I % echo cd % | xclip"
+alias cpd="pwd | xargs -I % echo 'cd \"%\"' | xclip"
 alias aliases='pluma ~/.bash_aliases &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
