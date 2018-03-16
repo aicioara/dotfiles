@@ -36,6 +36,7 @@ alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STD
 alias ip-local="hostname -I | xargs echo -n"
 alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8899"
 alias kkk="kill -9 %%"
+alias bbb="cp ~/dev/boilerplate/* ."
 
 # Bookmarks
 alias dev="cd ~/dev"
