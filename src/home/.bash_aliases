@@ -44,10 +44,6 @@ alias dw="cd ~/Downloads"
 alias pic="cd ~/Pictures"
 alias fast="dev && cd cpp/fast"
 
-# Ubuntu -> Mint conversions
-alias gedit="pluma"
-alias nautilus="caja"
-
 # Git
 gc() {
     gc_args=$@
