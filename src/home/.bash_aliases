@@ -38,6 +38,10 @@ alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8
 alias kkk="kill -9 %%"
 alias bbb="cp ~/dev/boilerplate/* ."
 
+# Tooling
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
+
 # Bookmarks
 alias dev="cd ~/dev"
 alias dw="cd ~/Downloads"
@@ -70,6 +74,10 @@ alias pdfCut="~/.scripts/pdfCut.sh"
 take () {
   mkdir -p $1
   cd $1
+}
+
+here() {
+  ls | grep -i $1
 }
 
 p() {
