@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import random
+
+options = [
+    "/usr/bin",
+    "/home/aicioara",
+    "/home/aicioara/tmp",
+    "/bin",
+    "/etc",
+    "/dev",
+]
+
+print random.choice(options)

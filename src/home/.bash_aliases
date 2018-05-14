@@ -39,8 +39,9 @@ alias kkk="kill -9 %%"
 alias bbb="cp ~/dev/boilerplate/* ."
 
 # Tooling
-alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
+alias decodeurl='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
+alias encodeurl='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
+alias base64="base64 -w0"
 
 # Bookmarks
 alias dev="cd ~/dev"
@@ -87,6 +88,10 @@ p() {
   else
     python $@
   fi
+}
+
+d() {
+  cd $( /home/aicioara/.scripts/pick )
 }
 
 clock() {
