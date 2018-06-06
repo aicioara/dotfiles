@@ -59,7 +59,7 @@ def create_symlinks(dotfiles):
 
         logging.info("Linking {} -> {}".format(src, dst))
 
-        cmd = "rm -r {dst}".format(dst=dst)
+        cmd = "rm -rf {dst}".format(dst=dst)
         s(cmd)
 
         cmd = "ln -fs {original} {symlink}".format(original=src, symlink=dst)
