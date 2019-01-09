@@ -13,13 +13,13 @@ REPO_HOME = os.path.abspath(os.path.join(CURR_FOLDER, "home/"))
 USER_HOME = os.path.expanduser("~")
 
 
-def s(cmd, dryrun=False):
+def s(cmd, dryrun=False, strict=True):
     if dryrun:
         print(cmd)
         return
     logging.debug(cmd)
     rc = os.system(cmd)
-    if rc != 0:
+    if rc != 0 and strict:
         logging.error("Failed to run `{}`".format(cmd))
         sys.exit(rc)
 
@@ -60,7 +60,7 @@ def create_symlinks(dotfiles):
         logging.info("Linking {} -> {}".format(src, dst))
 
         cmd = "rm -r {dst}".format(dst=dst)
-        s(cmd)
+        s(cmd, strict=False)
 
         cmd = "ln -fs {original} {symlink}".format(original=src, symlink=dst)
         s(cmd)

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source ~/tmp/foo/venv/bin/activate
+
+img2pdf -o result.pdf "$@"

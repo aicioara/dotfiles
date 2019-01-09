@@ -1,0 +1,5 @@
+#!/bin/bash
+# Written by Andrei Cioara <http://andrei.cioara.me>
+
+
+export EDITOR='pluma'

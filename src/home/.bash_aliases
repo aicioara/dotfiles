@@ -9,6 +9,7 @@ alias l="ls"
 alias sl="ls"
 alias s="ls"
 alias sls="ls"
+alias ll='ls -al'
 alias m="make"
 alias o="xdg-open"
 alias src='source ~/.bashrc'
@@ -31,12 +32,14 @@ alias fastnpm="npm init -y"
 
 # Useful Commands
 alias cpd="pwd | xargs -I % echo 'cd \"%\"' | xclip"
-alias aliases='pluma ~/.bash_aliases &'
+alias aliases='$EDITOR ~/.bash_aliases'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
 alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8899"
 alias kkk="kill -9 %%"
-alias bbb="cp ~/dev/boilerplate/* ."
+alias bbb="cp ~/dev/boilerplate/empty/* ."
+alias ramstatus="ps -e -o pid,vsz,comm= | sort -n -k 2"
+alias ps-start='ps -eo pid,lstart,cmd'
 
 # Tooling
 alias decodeurl='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
@@ -54,10 +57,16 @@ gc() {
     gc_args=$@
     echo "${gc_args^}" | xargs -I % git commit -am "%"
 }
+gbb() {
+    if [ -z $1 ]; then echo "Requires 1 argument - branch name"; return 1; fi
+    git diff-index --quiet HEAD --
+    rc=$?; if [ $rc -ne 0 ]; then echo "Uncommitted changes"; return $rc; fi
+    git checkout master; git pull; git checkout -b $@;
+}
 alias gst='git status -sb'
 alias gp='git push origin HEAD'
-# Remove `+` and `-` from start of diff lines; just rely upon color.
-alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gpl='git pull'
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r' # Remove `+` and `-` from start of diff lines; just rely upon color.
 
 # Laptop Fixes
 alias wireless="sudo nmcli nm sleep false"
@@ -91,8 +100,19 @@ p() {
 }
 
 d() {
-  cd $( /home/aicioara/.scripts/pick )
+  cd $( pick-dir )
 }
+
+
+f-watch() {
+  while [[ True ]]; do
+    echo "$@"
+    $@
+    sleep 0.1
+    inotifywait --recursive --quiet --exclude .git/ --event create,modify .
+  done
+}
+
 
 clock() {
     while true; do echo -ne "`date +%H:%M:%S:%N`\r"; done

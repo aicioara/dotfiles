@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+node --no-deprecation --trace-warnings ~/dev/nodejs/medium-upload/src/main.js "$@"
