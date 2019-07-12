@@ -2,14 +2,15 @@
 # Written by Andrei Cioara <http://andrei.cioara.me>
 
 # Shortcuts and common mistakes
-alias ls="ls --color=auto --group-directories-first"
+#alias ls="ls --group-directories-first"
+export CLICOLOR=1
 alias cd..='cd ..'
 alias c..="c .."
 alias l="ls"
 alias sl="ls"
+alias ll="ls -al"
 alias s="ls"
 alias sls="ls"
-alias ll='ls -al'
 alias m="make"
 alias o="xdg-open"
 alias src='source ~/.bashrc'
@@ -21,7 +22,7 @@ alias hack_repair='for file in *; do mv "$file" "${file/ /_}"; done'
 # Better defaults
 alias gitk="gitk --all"
 alias scons="scons -Q"
-alias xclip='xclip -selection c'
+# alias pbcopy='xclip -selection c'
 alias grep='grep --colour=auto -i --line-buffered'
 # Colorful less
 alias less="less -r"
@@ -31,11 +32,11 @@ alias fastbower="yes '' | bower init"
 alias fastnpm="npm init -y"
 
 # Useful Commands
-alias cpd="pwd | xargs -I % echo 'cd \"%\"' | xclip"
-alias aliases='$EDITOR ~/.bash_aliases'
+alias cpd="pwd | xargs -I % echo 'cd \"%\"' | pbcopy"
+alias aliases='$EDITOR ~/.bash_aliases &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
-alias server="echo 'http://0.0.0.0:8899' | xclip && python -m SimpleHTTPServer 8899"
+alias server="echo 'http://0.0.0.0:8899' | pbcopy && python -m SimpleHTTPServer 8899"
 alias kkk="kill -9 %%"
 alias bbb="cp ~/dev/boilerplate/empty/* ."
 alias ramstatus="ps -e -o pid,vsz,comm= | sort -n -k 2"
@@ -54,8 +55,7 @@ alias fast="dev && cd cpp/fast"
 
 # Git
 gc() {
-    gc_args=$@
-    echo "${gc_args^}" | xargs -I % git commit -am "%"
+    echo "$@" | awk '{ print toupper(substr($0, 1, 1)) substr($0, 2) }' | xargs -I % git commit -am "%"
 }
 gbb() {
     if [ -z $1 ]; then echo "Requires 1 argument - branch name"; return 1; fi
@@ -67,6 +67,7 @@ alias gst='git status -sb'
 alias gp='git push origin HEAD'
 alias gpl='git pull'
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r' # Remove `+` and `-` from start of diff lines; just rely upon color.
+alias glg='git log --graph --oneline --all'
 
 # Laptop Fixes
 alias wireless="sudo nmcli nm sleep false"
