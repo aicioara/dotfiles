@@ -9,3 +9,4 @@
 	tool = meld
 [core]
 	editor = vim
+	ignoreCase = false
