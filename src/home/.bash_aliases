@@ -1,5 +1,6 @@
-#!/bin/bash
 # Written by Andrei Cioara <http://andrei.cioara.me>
+
+export EDITOR='subl'
 
 # Shortcuts and common mistakes
 #alias ls="ls --group-directories-first"
@@ -22,14 +23,9 @@ alias hack_repair='for file in *; do mv "$file" "${file/ /_}"; done'
 # Better defaults
 alias gitk="gitk --all"
 alias scons="scons -Q"
-# alias pbcopy='xclip -selection c'
 alias grep='grep --colour=auto -i --line-buffered'
 # Colorful less
 alias less="less -r"
-
-# Fast stuff
-alias fastbower="yes '' | bower init"
-alias fastnpm="npm init -y"
 
 # Useful Commands
 alias cpd="pwd | xargs -I % echo 'cd \"%\"' | pbcopy"
@@ -51,7 +47,6 @@ alias base64="base64 -w0"
 alias dev="cd ~/dev"
 alias dw="cd ~/Downloads"
 alias pic="cd ~/Pictures"
-alias fast="dev && cd cpp/fast"
 
 # Git
 gc() {
@@ -91,14 +86,7 @@ here() {
   ls | grep -i $1
 }
 
-p() {
-  if [ $# -eq 0 ]
-  then
-    python -i /home/aicioara/.scripts/imports.py
-  else
-    python $@
-  fi
-}
+alias pp='python'
 
 d() {
   cd $( pick-dir )

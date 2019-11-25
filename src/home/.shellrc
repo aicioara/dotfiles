@@ -11,11 +11,7 @@ export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:
 export PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\n\$\[\033[00m\] '
 
 # Npm
-export PATH=/usr/local/npm/bin:$PATH
-export PATH=/usr/local/n/versions/node/9.1.0/bin/:$PATH
-#export npm=/usr/local/n/versions/node/9.1.0/bin//npm
-
-export PATH=$PATH:${HOME}/.scripts/path/
+export NO_UPDATE_NOTIFIER=1
 
 # CUDA
 export CUDA_HOME=/usr/local/cuda-7.0
@@ -30,12 +26,4 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # AWS
 unset PYTHON_INSTALL_LAYOUT # Fixes AWS Python issues
 
-
-# Must be included before the aliases
-source ~/.bash_variables
-
 source ~/.bash_aliases
-
-# TODO: check for file existance
-source ~/.bash_private
-
