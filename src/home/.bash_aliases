@@ -60,6 +60,7 @@ gbb() {
 }
 alias gst='git status -sb'
 alias gp='git push origin HEAD'
+alias gcb='git checkout -b'
 alias gpl='git pull'
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r' # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias glg='git log --graph --oneline --all'
