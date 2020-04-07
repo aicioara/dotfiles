@@ -30,6 +30,7 @@ alias less="less -r"
 # Useful Commands
 alias cpd="pwd | xargs -I % echo 'cd \"%\"' | pbcopy"
 alias aliases='$EDITOR ~/.bash_aliases &'
+alias aliases_private='$EDITOR ~/.bash_private &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
 alias server="echo 'http://0.0.0.0:8899' | pbcopy && python -m SimpleHTTPServer 8899"

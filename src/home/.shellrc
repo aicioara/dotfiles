@@ -16,6 +16,9 @@ export NO_UPDATE_NOTIFIER=1
 # Go
 export GOPATH="$HOME/dev/cache/go"
 
+# Scripts
+export PATH="$PATH:$HOME/dev/scripts/bin"
+
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 
@@ -23,3 +26,4 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 unset PYTHON_INSTALL_LAYOUT # Fixes AWS Python issues
 
 source ~/.bash_aliases
+source ~/.bash_private 2> /dev/null
