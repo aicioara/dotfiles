@@ -66,6 +66,13 @@ alias gpl='git pull'
 alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r' # Remove `+` and `-` from start of diff lines; just rely upon color.
 alias glg='git log --graph --oneline --all'
 
+# Kubernetes
+alias k=kubectl
+
+alias keti='kubectl exec -ti'
+alias kgp='kubectl get pods'
+alias kgpw='kgp --watch'
+
 # Laptop Fixes
 alias wireless="sudo nmcli nm sleep false"
 alias suspend="sudo pm-suspend"
@@ -77,6 +84,7 @@ alias c=". ~/.scripts/cd.sh"
 alias sshadd=". ~/.scripts/ssh-add.sh"
 alias db="~/.scripts/dropbox.py"
 alias pdfCut="~/.scripts/pdfCut.sh"
+
 
 # Functions
 take () {
