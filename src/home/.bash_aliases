@@ -3,7 +3,7 @@
 export EDITOR='subl'
 
 # Shortcuts and common mistakes
-#alias ls="ls --group-directories-first"
+#alias ls="ls --group-directories-first --colors=auto"
 export CLICOLOR=1
 alias cd..='cd ..'
 alias c..="c .."
