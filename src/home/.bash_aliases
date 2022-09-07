@@ -35,7 +35,7 @@ alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STD
 alias ip-local="hostname -I | xargs echo -n"
 alias server="echo 'http://0.0.0.0:8899' | pbcopy && python -m SimpleHTTPServer 8899"
 alias kkk="kill -9 %%"
-alias bbb="cp ~/dev/boilerplate/empty/* ."
+alias bbb="cp ~/dev/boilerplate/empty/!(.git) ."
 alias ramstatus="ps -e -o pid,vsz,comm= | sort -n -k 2"
 alias ps-start='ps -eo pid,lstart,cmd'
 
@@ -43,6 +43,7 @@ alias ps-start='ps -eo pid,lstart,cmd'
 alias decodeurl='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
 alias encodeurl='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
 alias base64="base64 -w0"
+alias hh="cat ~/.logs/bash-history/*"
 
 # Bookmarks
 alias dev="cd ~/dev"

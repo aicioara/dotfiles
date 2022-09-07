@@ -4,6 +4,9 @@
 # glob * matches dot files as well
 shopt -s dotglob
 
+# glob supports negative matching
+shopt -s extglob
+
 # Logging Bash History
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history/bash-history-$(date "+%Y-%m-%d").log; fi'
 
