@@ -8,8 +8,8 @@ from os import path
 
 
 CURR_FOLDER = os.path.dirname(os.path.realpath(__file__))
-BACKUP_ROOT = os.path.abspath(os.path.join(CURR_FOLDER, "../backups/"))
-REPO_HOME = os.path.abspath(os.path.join(CURR_FOLDER, "home/"))
+BACKUP_ROOT = os.path.abspath(os.path.join(CURR_FOLDER, "..", "backups"))
+REPO_HOME = os.path.abspath(os.path.join(CURR_FOLDER, "home"))
 USER_HOME = os.path.expanduser("~")
 
 
@@ -30,7 +30,7 @@ def get_dotfiles():
 
 def backup_old_configs(dotfiles):
     backup_folder_prefix = os.path.join(BACKUP_ROOT, time.strftime("%Y_%m_%d_%H_%M_%S_"))
-    for backup_folder_suffix in xrange(100):
+    for backup_folder_suffix in range(100):
         if not os.path.isdir("{}{}".format(backup_folder_prefix, backup_folder_suffix)):
             break
     else:
@@ -71,6 +71,7 @@ def main():
     dotfiles = get_dotfiles()
     backup_old_configs(dotfiles)
     create_symlinks(dotfiles)
+    logging.info("SUCCESS!")
 
 
 if __name__ == "__main__":
