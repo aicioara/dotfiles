@@ -29,7 +29,7 @@ alias less="less -r"
 
 # Useful Commands
 alias cpd="pwd | xargs -I % echo 'cd \"%\"' | pbcopy"
-alias aliases='$EDITOR ~/.bash_aliases &'
+alias aliases='$EDITOR ~/.bash_aliases & $EDITOR ~/.shellrc &'
 alias aliases_private='$EDITOR ~/.bash_private &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
