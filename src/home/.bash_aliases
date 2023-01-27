@@ -42,7 +42,7 @@ alias ps-start='ps -eo pid,lstart,cmd'
 # Tooling
 alias decodeurl='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\".join(sys.stdin.readlines()).strip())"'
 alias encodeurl='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
-alias base64="base64 -w0"
+alias base64="base64"
 alias hh="cat ~/.logs/bash-history/*"
 
 # Bookmarks
