@@ -29,7 +29,7 @@ alias less="less -r"
 
 # Useful Commands
 alias cpd="pwd | xargs -I % echo 'cd \"%\"' | pbcopy"
-alias aliases='$EDITOR ~/.bash_aliases & $EDITOR ~/.shellrc &'
+alias aliases='$EDITOR ~/.bash_aliases & $EDITOR ~/.shellrc & $EDITOR ~/.bash_private &'
 alias aliases_private='$EDITOR ~/.bash_private &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
@@ -44,6 +44,7 @@ alias decodeurl='python -c "import sys, urllib as ul; print ul.unquote_plus(\"\"
 alias encodeurl='python -c "import sys, urllib as ul; print ul.quote_plus(\"\".join(sys.stdin.readlines()).strip())"'
 alias base64="base64"
 alias hh="cat ~/.logs/bash-history/*"
+
 
 # Bookmarks
 alias dev="cd ~/dev"
@@ -101,6 +102,10 @@ alias pp='python'
 
 d() {
   cd $( pick-dir )
+}
+
+tmpCrop() {
+    convert -gravity center -crop 3:2 "$1" "$1.jpg"
 }
 
 
