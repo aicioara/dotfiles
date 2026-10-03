@@ -33,7 +33,7 @@ alias aliases='$EDITOR ~/.bash_aliases & $EDITOR ~/.shellrc & $EDITOR ~/.bash_pr
 alias aliases_private='$EDITOR ~/.bash_private &'
 alias ip-public="curl -s https://api.ipify.org?format=json | perl -e 'print <STDIN> =~ m{\d*\.\d*\.\d*\.\d*}g; '"
 alias ip-local="hostname -I | xargs echo -n"
-alias server="echo 'http://0.0.0.0:8899' | pbcopy && python3 -m http.server 8899"
+alias server="echo 'http://0.0.0.0:8899' | pbcopy && python3 -m http.server 8899 --bind 0.0.0.0"
 alias kkk="kill -9 %%"
 alias bbb="cp ~/dev/boilerplate/empty/!(.git) ."
 alias ramstatus="ps -e -o pid,vsz,comm= | sort -n -k 2"
@@ -98,7 +98,7 @@ here() {
   ls | grep -i $1
 }
 
-alias pp='python'
+alias pp='python3'
 
 d() {
   cd $( pick-dir )

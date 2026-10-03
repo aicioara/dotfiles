@@ -19,18 +19,14 @@ export PS1='\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34
 # Npm
 export NO_UPDATE_NOTIFIER=1
 
-# Nvm
-export NVM_DIR="$HOME/.nvm"
-export PATH="$HOME/.nvm/versions/node/v18.9.0/bin:$PATH"
-# Commented out because it is a 4k LOC script that ads 0.1 seconds load times
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Pyenv
-export PATH="$HOME/.pyenv/shims:$PATH"
 
 # Go
 export GOPATH="$HOME/dev/cache/go"
+
+# Rust
+source "$HOME/.cargo/env"
 
 # Apple
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -40,13 +36,24 @@ export PATH="$PATH:$HOME/dev/scripts/bin"
 export PATH="$PATH:$HOME/dev/tools/md5sum-bulk/bin"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.pyenv/shims:$PATH"
 export PATH="$PATH:/opt/andrei/bin"
 
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Nvm
+export NVM_DIR="$HOME/.nvm"
+export PATH="$HOME/.nvm/versions/node/v24.14.1/bin:$PATH"
+# Commented out because it is a 4k LOC script that ads 0.1 seconds load times
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # AWS
 unset PYTHON_INSTALL_LAYOUT # Fixes AWS Python issues
+
+# Huggingface
+export HF_HUB_DISABLE_TELEMETRY="True"
 
 source ~/.bash_aliases
 source ~/.bash_private 2> /dev/null
